@@ -17,8 +17,8 @@ class Website
      */
     public function __construct($config)
     {
-        if (file_exists(BASEPATH.'app/lib/config/'.$config.'.php')) {
-            include_once(BASEPATH.'app/lib/config/'.$config.'.php');
+        if (file_exists(BASEPATH.'app/lib/config/'.$config.'.conf.php')) {
+            include_once(BASEPATH.'app/lib/config/'.$config.'.conf.php');
         }
     }
 
