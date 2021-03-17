@@ -1,14 +1,6 @@
-<?php
-
-// To avoid this template to be loaded as a single file
-if (!defined('PROCESSED')) {
-    include_once('404.php');
-    exit();
-}
-
-?>
 <!DOCTYPE html>
 <html>
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
