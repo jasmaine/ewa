@@ -25,12 +25,12 @@ session_start();
  * Used within the complete website
  * Needed for the autoloader
  */
-define("BASEPATH", "/Users/pasarella/www/sites/webapp/");
+define("BASEPATH", explode('httpdocs', $_SERVER['DOCUMENT_ROOT'])[0]);
 
 /**
  * Include the autoloader
  */
-include_once(BASEPATH.'app/lib/autoload.php');
+include_once(BASEPATH.'/app/lib/autoload.php');
 
 /**
  * Initiate the website app
