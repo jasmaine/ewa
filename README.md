@@ -25,6 +25,6 @@ If you want every item from the table, just leave the second param empty.
 
 **SELECT WHERE**
 
-You can stack the where state on top of the get method.
+You can stack the where method on top of the get method.
 
 `$mysql->where('id',1)->get('tabel','row1,row2,row3');`
