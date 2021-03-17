@@ -17,7 +17,12 @@ To start innitiate by creating an object:
 
 Selecting data from a database is easy and does not need a lot of code.
 
-`$mysql->get('tabel','row1,row2,row3');`
+`$mysql->get('table','row1,row2,row3');`
+
+If you want every item from the table, just leave the second param empty.
+
+`$mysql->get('table');`
+
 
 **SELECT WHERE**
 
