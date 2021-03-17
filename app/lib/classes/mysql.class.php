@@ -166,13 +166,17 @@ class Mysql
         
         $sql = "SELECT $select FROM $table".$where.$extra;
         
-        $stmt = $this->db->prepare($sql);
+        if (!$stmt = $this->db->prepare($sql)) {
+            throw new EwaException($this->db->error);
+        }
 
         if ($params) {
             $stmt->bind_param($type, ...$params);
         }
         
-        $stmt->execute();
+        if (!$stmt->execute()) {
+            throw new EwaException($stmt->error);
+        }
          
         $result = $stmt->get_result();
 
@@ -189,5 +193,50 @@ class Mysql
         }
         
         return $data;
+    }
+    
+    /**
+     * Method database add (INSERT INTO)
+     *
+     * @param string $table
+     * @param array $fields
+     * @return true
+     */
+    public function add($table = null, $fields = null)
+    {
+        if (!empty($table) and !empty($fields) and is_array($fields)) {
+            $amountFields = count($fields);
+            $type = '';
+            $value = array();
+        
+            foreach ($fields as $k => $v) {
+                $inserFields[] = $k;
+                $insertPlaceholder[] = '?';
+                $value[] = $v;
+                $type .= substr(gettype($v), 0, 1);
+            
+                if (Validator::isValidNum($k)) {
+                    throw new EwaException('The insert rows and values do not match.');
+                }
+            }
+
+            $sql = "INSERT INTO ".$table." (".implode(',', $inserFields).") VALUES (".implode(',', $insertPlaceholder).")";
+        
+            if (!$stmt = $this->db->prepare($sql)) {
+                throw new EwaException($this->db->error);
+            }
+
+            $stmt->bind_param($type, ...$value);
+
+            if (!$stmt->execute()) {
+                throw new EwaException($stmt->error);
+            }
+            
+            if ($stmt->affected_rows == 1) {
+                return true;
+            }
+        } else {
+            throw new EwaException('No correct insert data given.');
+        }
     }
 }
