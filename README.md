@@ -4,6 +4,18 @@ EWA is a website application. It is built in response to the great frameworks. B
 
 It is also a personal project with which I develop myself as a PHP programmer.
 
+## TODO
+* Updating the mysql class with groupby method
+* Updating the mysql class with insert, update and delete methods
+* Adding a general var validation from user input
+* Making a basic start page in the 'home' view
+* Writing installation/usage guide (already started below)
+
+## WISHLIST
+* Building a language switch
+* Update Jasmine CSS
+* Breadcrumb method
+
 ## Methods
 
 ### Database class
