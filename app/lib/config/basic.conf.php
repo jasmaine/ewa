@@ -4,9 +4,9 @@
  * DB Login settings
  */
 define("DBHOST", "localhost");
-define("DBNAME", "");
-define("DBUSER", "");
-define("DBPASS", "");
+define("DBNAME", "game");
+define("DBUSER", "root");
+define("DBPASS", "enter");
 
 /**
  * App settings

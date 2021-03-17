@@ -1,8 +1,8 @@
 # Meet EWA
 
-EWA is a website application. It is built in response to the great frameworks. Because not every website or web app needs a large framework.
+EWA is a website application for building small or medium website and web apps. It is built in response to the large frameworks like Laravel. Because not every website or web app needs a large framework. Don't get me wrong, I love Laravel, I learned so much from it and it inspired me for the approaches I use to write code for EWA. 
 
-It is also a personal project with which I develop myself as a PHP programmer.
+It is also a personal project to improve myself as a php developer.
 
 ## TODO
 * Updating the mysql class with groupby method
