@@ -8,8 +8,7 @@ Daarnaast is het ook een persoonlijk project waarmee ik mezelf ontwikkel als php
 
 ### Database class
 
-The database class is made to supply basic anready to go methods to select, insert, update and delete data from a mysql database. It is build on the mysqli method.
-To start innitiate by creating an object:
+The database class is made to supply basic ready to go methods to select, insert, update and delete data from a mysql database. It is build on the [php mysqli extension.](https://www.php.net/manual/en/book.mysqli.php) To start innitiate by creating an object:
 
 `$mysql = new Mysql();`
 
