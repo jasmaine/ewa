@@ -1,8 +1,8 @@
 # Meet EWA
 
-EWA is een website applicatie. Het is gebouwd als antwoord op de grote frameworks. Want niet iedere website of web app heeft een groot framework nodig. 
+EWA is a website application. It is built in response to the great frameworks. Because not every website or web app needs a large framework.
 
-Daarnaast is het ook een persoonlijk project waarmee ik mezelf ontwikkel als php programmeur.
+It is also a personal project with which I develop myself as a PHP programmer.
 
 ## Methods
 
