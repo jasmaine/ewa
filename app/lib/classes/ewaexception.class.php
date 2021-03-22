@@ -23,10 +23,10 @@ class EwaException extends Exception
     public function errorData()
     {
         $errorData = array(
-            'timestamp' =>  date('Y-m-d H:m:s'),
-            'page'      =>  $_SERVER['REQUEST_URI'],
-            'language'  =>  substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2),
-            'message'   =>  $this->error
+            'timestamp'     =>  date('Y-m-d H:m:s'),
+            'request_page'  =>  $_SERVER['REQUEST_URI'],
+            'user_language' =>  substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2),
+            'message'       =>  $this->error
         );
         
         return $errorData;
