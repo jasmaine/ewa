@@ -50,6 +50,6 @@ function trans($lang)
 }
 
 /**
- * Load the template
+ * Load the template and passing the Website methods
  */
 $app->loadTemplate($app);
