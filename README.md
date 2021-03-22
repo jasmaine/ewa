@@ -17,7 +17,7 @@ Pages and templates are loaded dynamically. Make a new file in de index folder (
 
 In the new file in the index folder call the following function to load the view:
 
-`$app->loadView('contact', $data);`
+`$app->loadView($view, $data = '');`
 
 The system will search for a file with the given name as the first param. You can pass data to the view. This can be a single string, boolean, array, object and methods. For example:
 
