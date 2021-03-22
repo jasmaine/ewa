@@ -6,8 +6,8 @@ body,html,* {
 
 @font-face {
   font-family: "icons";
-  src: url("/site/assets/fonts/icons.woff2") format("woff2"),
-url("/site/assets/fonts/icons.woff") format("woff");
+  src: url("../fonts/icons.woff2") format("woff2"),
+url("../fonts/icons.woff") format("woff");
 }
 
 [class^="icon-"]::before,
