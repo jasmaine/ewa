@@ -23,6 +23,8 @@ The system will search for a file with the given name as the first param. You ca
 
 `$myArray = array('title'=>'Hello World!');`
 
+`$app->loadView('contact', $myArray);`
+
 In the view the data is available by simply calling:
 
 `return $data` or `echo $data`
