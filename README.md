@@ -2,12 +2,6 @@
 
 EWA is website application for building small or medium size websites and web apps. It stems from the code I created for my own projects. Recently I decided to share it so that others can use it too or want to contribute to develop further together.
 
-## TODO
-* Building a language switch
-* Breadcrumb method
-* Adding a general var validation from user input
-* Making a basic start page in the 'home' view
-* Writing installation/usage guide (already started below)
 
 ## Getting started
 
@@ -18,6 +12,7 @@ Easy installation to get started building with EWA.
 4. change the settings matching your information. Do not touch the 'app settings', this might break EWA.
 5. Go to the browser type in the url and enjoy! 
 6. Time to write your app/website code on the core of EWA, amaze her. 
+
 
 ## Methods
 
