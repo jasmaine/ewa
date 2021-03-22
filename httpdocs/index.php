@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 */
 /*************************************
  *                                   *
- * Mesic / Pasarella WebApp v.2.0.1  *
+ * Mesic / Pasarella WebApp v.2.0.0b *
  * Date: 22 March 2021               *
  *                                   *
  * (c) STUDIO PASARELLA 2021         *
