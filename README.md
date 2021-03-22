@@ -9,6 +9,16 @@ EWA is website application for building small or medium size websites and web ap
 * Making a basic start page in the 'home' view
 * Writing installation/usage guide (already started below)
 
+## Getting started
+
+Easy installation to get started building with EWA.
+1. upload the files on your server as within this package.
+2. setup your webserver and point the document root to the httpdocs folder.
+3. open the 'basic.conf.php' file in the app/lib/config folder
+4. change the settings matching your data. Do not touch the 'app settings', this might break EWA.
+5. Go to the browser type in the url and enjoy! 
+6. Time to write your app/website code on the core of EWA, amaze her. 
+
 ## Methods
 
 ### Website class view method
