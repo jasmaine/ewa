@@ -17,7 +17,7 @@ class Mysql
     {
         $this->db = \Database::initConnection();
     }
-    
+
     /**
      * Protected static for method 'where'
      *
@@ -38,10 +38,10 @@ class Mysql
                 $where['type'] .= substr(gettype($value), 0, 1);
             }
         }
-        
+
         self::$where = $where;
     }
-    
+
     /**
      * Protected static for method 'limit'
      *
@@ -56,10 +56,10 @@ class Mysql
         } else {
             $limit = sprintf(" LIMIT %s, %s", $from, $to);
         }
-        
+
         self::$limit = $limit;
     }
-    
+
     /**
      * Protected static for method 'orderby'
      *
@@ -75,7 +75,7 @@ class Mysql
             self::$orderby = sprintf(" ORDER BY %s %s", $field, $order);
         }
     }
-    
+
     /**
      * Protected static to build extra select option for the get query
      *
@@ -84,17 +84,17 @@ class Mysql
     protected static function _extra()
     {
         $extra = '';
-        
+
         if (self::$orderby != null) {
             $extra .= self::$orderby;
         }
         if (self::$limit != null) {
             $extra .= self::$limit;
         }
-        
+
         return $extra;
     }
-    
+
     /**
      * Method database where
      *
@@ -109,10 +109,10 @@ class Mysql
         } else {
             self::_where(array($field => $equal));
         }
-        
+
         return $this;
     }
-    
+
     /**
      * Method database limit
      *
@@ -123,10 +123,10 @@ class Mysql
     public function limit($from, $to = null)
     {
         self::_limit($from, $to);
-        
+
         return $this;
     }
-    
+
     /**
      * Method database orderby
      *
@@ -140,7 +140,7 @@ class Mysql
             $order = 'ASC';
         }
         self::_orderby($field, $order);
-        
+
         return $this;
     }
 
@@ -157,15 +157,19 @@ class Mysql
         $type = '';
         $params = false;
         $extra = self::_extra();
-        
+
         if (self::$where != null) {
             $where = self::$where['clause'];
             $params = self::$where['params'];
             $type = self::$where['type'];
         }
-        
+
+        if (is_array($select)) {
+            $select = implode(",", $select);
+        }
+
         $sql = "SELECT $select FROM $table".$where.$extra;
-        
+
         if (!$stmt = $this->db->prepare($sql)) {
             throw new EwaException($this->db->error);
         }
@@ -173,11 +177,11 @@ class Mysql
         if ($params) {
             $stmt->bind_param($type, ...$params);
         }
-        
+
         if (!$stmt->execute()) {
             throw new EwaException($stmt->error);
         }
-         
+
         $result = $stmt->get_result();
 
         if ($result->num_rows == 0) {
@@ -186,15 +190,15 @@ class Mysql
             $data = $result->fetch_object();
         } else {
             $data = array();
-            
+
             while ($row = $result->fetch_object()) {
                 $data[] = $row;
             }
         }
-        
+
         return $data;
     }
-    
+
     /**
      * Method database add (INSERT INTO)
      *
@@ -208,20 +212,20 @@ class Mysql
             $amountFields = count($fields);
             $type = '';
             $value = array();
-        
+
             foreach ($fields as $k => $v) {
                 $inserFields[] = $k;
                 $insertPlaceholder[] = '?';
                 $value[] = $v;
                 $type .= substr(gettype($v), 0, 1);
-            
+
                 if (Validator::isValidNum($k)) {
                     throw new EwaException('The insert rows and values do not match.');
                 }
             }
 
             $sql = "INSERT INTO ".$table." (".implode(',', $inserFields).") VALUES (".implode(',', $insertPlaceholder).")";
-        
+
             if (!$stmt = $this->db->prepare($sql)) {
                 throw new EwaException($this->db->error);
             }
@@ -231,8 +235,61 @@ class Mysql
             if (!$stmt->execute()) {
                 throw new EwaException($stmt->error);
             }
-            
+
             if ($stmt->affected_rows == 1) {
+                return true;
+            }
+        } else {
+            throw new EwaException('No correct insert data given.');
+        }
+    }
+
+    /**
+     * Method database update (UPDATE $table SET)
+     *
+     * @param string $table
+     * @param array $fields
+     * @return true
+     */
+    public function update($table, $fields = null)
+    {
+        if (!empty($table) and !empty($fields) and is_array($fields)) {
+            $where = '';
+            $params = false;
+            $type = '';
+            $value = array();
+
+            foreach ($fields as $k => $v) {
+                if (empty($set)) {
+                    $set = $k ."= ?";
+                } else {
+                    $set .= ", ".$k ."= ?";
+                }
+                $value[] = $v;
+                $type .= substr(gettype($v), 0, 1);
+            }
+
+            if (self::$where != null) {
+                $where = self::$where['clause'];
+                $params = self::$where['params'];
+                $type .= self::$where['type'];
+            }
+
+            $sql = "UPDATE $table SET ".$set.$where;
+
+            if (!$stmt = $this->db->prepare($sql)) {
+                throw new EwaException($this->db->error);
+            }
+
+            $stmt->bind_param($type, ...$value, ...$params);
+
+            if (!$stmt->execute()) {
+                throw new EwaException($stmt->error);
+            }
+
+            if ($stmt->affected_rows < 1) {
+                throw new EwaException('No records have been changed.');
+            } else {
                 return true;
             }
         } else {
