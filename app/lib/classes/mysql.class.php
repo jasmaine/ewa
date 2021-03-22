@@ -296,4 +296,43 @@ class Mysql
             throw new EwaException('No correct insert data given.');
         }
     }
+
+    /**
+     * Method database remove (DELETE)
+     *
+     * @param string $table
+     * @return true
+     */
+    public function remove($table)
+    {
+        if (!empty($table) && self::$where != null) {
+            $where = '';
+            $params = false;
+            $type = '';
+
+            $where = self::$where['clause'];
+            $params = self::$where['params'];
+            $type .= self::$where['type'];
+
+            $sql = "DELETE FROM $table".$where;
+
+            if (!$stmt = $this->db->prepare($sql)) {
+                throw new EwaException($this->db->error);
+            }
+
+            $stmt->bind_param($type, ...$params);
+
+            if (!$stmt->execute()) {
+                throw new EwaException($stmt->error);
+            }
+
+            if ($stmt->affected_rows < 1) {
+                throw new EwaException('No records have been changed.');
+            } else {
+                return true;
+            }
+        } else {
+            throw new EwaException('No correct insert data given.');
+        }
+    }
 }
