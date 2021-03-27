@@ -5,6 +5,8 @@
  */
 define("PROCESSED", true);
 define("APPLOC", "app");
+define("PASSWORD_HASH_STRENGTH", 12);
+define("PASSWORD_LENGTH", 8);
 define("TEMPLATE_PLAIN", "404,post,get");
 
 /**
@@ -19,7 +21,7 @@ define("DBPASS", "");
  * Website settings
  */
 define("START_PAGE", "home");
-define("URI", "https://www.yourdomain.com");
+define("URI", "http://ewa.project.com");
 define("WEBSITE_BASIC_LANG", "en");
 define("WEBSITE_TITLE", "Website Title");
 define("WEBSITE_AUTHOR", "Your Name");
