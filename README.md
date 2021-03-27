@@ -22,13 +22,16 @@ Pages and templates are loaded dynamically. Make a new file in de index folder (
 
 In the new file in the index folder call the following function to load the view:
 
-`$app->loadView($view, $data = '');`
+```php
+$app->loadView($view, $data = '');
+```
 
 The system will search for a file with the given name as the first param. You can pass data to the view. This can be a single string, boolean, array, object and methods. For example:
 
-`$myArray = array('title'=>'Hello World!');`
-
-`$app->loadView('contact', $myArray);`
+```php
+$myArray = array('title'=>'Hello World!');
+$app->loadView('contact', $myArray);
+```
 
 In the view the data is available by simply calling:
 
@@ -36,7 +39,9 @@ In the view the data is available by simply calling:
 
 With the data we passed an echo will generate an error. So we can print hello world by the following code:
 
-`echo $data['title'];`
+```php
+echo $data['title'];
+```
 
 It is recommended only to pass data to build up the view, and leave all the logic in the index files. 
 
@@ -44,7 +49,9 @@ It is recommended only to pass data to build up the view, and leave all the logi
 
 The database class is made to supply basic ready to go methods to select, insert, update and delete data from a database.
 
-`$db = new Database();`
+```php
+$db = new Database();
+```
 
 In the examples below 'users' is a table in the database. The 'name', 'mail' and 'id' are the rows.
 
@@ -52,25 +59,35 @@ In the examples below 'users' is a table in the database. The 'name', 'mail' and
 
 Selecting data from a database is easy and does not need a lot of code.
 
-`$db->limit(5)->orderby('name', 'DESC')->get('users', array('name','mail'));`
+```php
+$db->limit(5)->orderby('name', 'DESC')->get('users', array('name','mail'));
 
-`$db->where('id', 1)->get('users', array('name','mail'));`
+$db->where('id', 1)->get('users', array('name','mail'));
+```
 
 If you want every item from the table, just leave the second param empty.
 
-`$db->get('users');`
+```php
+$db->get('users');
+```
 
 
 **INSERT**
 
 
-`$db->add('users', array('name'=>'Jan', 'mail'=>'jan@hotmail.com'));`
+```php
+$db->add('users', array('name'=>'Jan', 'mail'=>'jan@hotmail.com'));
+```
 
 
 **UPDATE**
 
-`$db->where('id', 11)->update('user', array('name'=>'Mikey', 'mail'=>'mikey@hotmail.com'));`
+```php
+$db->where('id', 11)->update('user', array('name'=>'Mikey', 'mail'=>'mikey@hotmail.com'));
+```
 
 **DELETE**
 
-`$db->where('id', 11)->remove('users');`
+```php
+$db->where('id', 11)->remove('users');
+```
