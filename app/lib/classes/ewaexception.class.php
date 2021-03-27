@@ -6,7 +6,7 @@
 class EwaException extends Exception
 {
     private $error;
-    
+
     /**
      * get the error code and set private @var $error
      */
@@ -14,7 +14,7 @@ class EwaException extends Exception
     {
         $this->error = $error;
     }
-    
+
     /**
      * Get data and build an error array
      *
@@ -28,10 +28,10 @@ class EwaException extends Exception
             'user_language' =>  substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2),
             'message'       =>  $this->error
         );
-        
+
         return $errorData;
     }
-    
+
     /**
      * Return error message as plain text
      *
@@ -41,7 +41,7 @@ class EwaException extends Exception
     {
         return $this->error;
     }
-    
+
     /**
      * Return error message styled
      *
@@ -49,6 +49,6 @@ class EwaException extends Exception
      */
     public function errorDisplay()
     {
-        return "<div class='error-message'><strong>Error message</strong><br/>(".date('Y-m-d H:m:s').") ".$this->error;
+        return "<div class='error-message'><strong>".Lang::get('error_message_head')."</strong><br/>(".date('Y-m-d H:m:s').") ".$this->error."</div>";
     }
 }
