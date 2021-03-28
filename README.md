@@ -122,6 +122,19 @@ $replaceArray = array (
 $mail->sendMail($toName, $toMail, $subject, $type, $replaceArray);
 ```
 
+The e-mail can look like this:
+
+```html 
+Hello {name}
+<br/><br/>
+This is a conformation about your registration.
+Your're username is: {username}
+<br/><br/>
+Kind Regards,
+<br/><br/>
+Webteam
+```
+
 E-mail templates needs to be setup before and stored in the folder /app/template/mails.
 Each mail will be called using the @param $type.
 File structure needs top be: type + language => type.en.mail.php or passwordreset.en.mail.php
