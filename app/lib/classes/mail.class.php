@@ -59,7 +59,7 @@ class Mail
         $mailTemplate = $this->loadTemplate($type);
         
         foreach ($array as $key => $value) {
-            $mailTemplate = str_replace($key, $value, $mailTemplate);
+            $mailTemplate = str_replace('{'.$key.'}', $value, $mailTemplate);
         }
         
         return $mailTemplate;

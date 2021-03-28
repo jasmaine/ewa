@@ -49,6 +49,6 @@ class EwaException extends Exception
      */
     public function errorDisplay()
     {
-        return "<div class='error-message'><strong>".Lang::get('error_message_head')."</strong><br/>(".date('Y-m-d H:m:s').") ".$this->error."</div>";
+        return "<div class='error-message'><strong>".Lang::get('message.error.title')."</strong><br/>(".date('Y-m-d H:m:s').") ".$this->error."</div>";
     }
 }

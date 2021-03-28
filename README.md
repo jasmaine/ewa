@@ -125,5 +125,5 @@ $mail->sendMail($toName, $toMail, $subject, $type, $replaceArray);
 ```
 
 E-mail templates needs to be setup before and stored in the folder /app/template/mails.
-Each mail will be called using the $param type.
+Each mail will be called using the @param $type.
 File structure needs top be: type + language => type.en.mail.php or passwordreset.en.mail.php
