@@ -182,7 +182,7 @@ $lengt = 8;
 
 /**
  * By default strict is false.
- * When strict is true, the password needs to have letter (upper and lower), numbers and special characters.
+ * strict: uppercase and lowercase letters, numbers, special characters.
  */
 $strict = true;
 
