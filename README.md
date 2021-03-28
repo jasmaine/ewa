@@ -127,8 +127,8 @@ The e-mail can look like this:
 ```html 
 Hello {name}
 <br/><br/>
-This is a conformation about your registration.
-Your're username is: {username}
+This is a confirmation about your registration.
+You're username is: {username}
 <br/><br/>
 Kind Regards,
 <br/><br/>
