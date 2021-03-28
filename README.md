@@ -67,6 +67,33 @@ If you want every item from the table, just leave the second param empty.
 $db->get('users');
 ```
 
+Example to handle the results:
+```php
+$db = new Database();
+
+$query = $db->get('users');
+
+if($query->results) {
+	
+	echo '<h1>Users</h1>'
+	echo '<p>You have fetched '.$query->count.' users.</p>';
+	echo '<table>';
+	
+	foreach($query->results as $user) {
+	
+		echo '<tr><td>'.$user->id.'</td><td>'.$user->username.'</td><td>'.$user->mail.'</td></tr>';
+	
+	}
+	
+	echo '</table>';
+	
+} else {
+
+	echo $query->message;
+	
+}
+```
+
 Insert data in the database:
 
 
