@@ -81,7 +81,11 @@ if($query->results) {
 	
 	foreach($query->results as $user) {
 	
-		echo '<tr><td>'.$user->id.'</td><td>'.$user->username.'</td><td>'.$user->mail.'</td></tr>';
+		echo '<tr>';
+		echo '<td>'.$user->id.'</td>';
+		echo '<td>'.$user->username.'</td>';
+		echo '<td>'.$user->mail.'</td>';
+		echo '</tr>';
 	
 	}
 	
