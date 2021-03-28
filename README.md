@@ -91,3 +91,39 @@ $db->where('id', 11)->update('user', array('name'=>'Mikey', 'mail'=>'mikey@hotma
 ```php
 $db->where('id', 11)->remove('users');
 ```
+
+### Mail class
+
+How to send an e-mail:
+
+```php
+$mail = new Mail();
+
+// Full name of the recipient. 
+$toName = '';
+
+// E-mail addess of the recipient.
+$toMail = '';
+
+// E-mail subject
+$subjet = '';
+
+// This is the mail template name that needs to be loaded
+$type = '';
+
+/**
+ * This array hold values to replace placeholders in the e-mail template.
+ * The keys are written as follows: {name}
+ */
+$replaceArray = array (
+	'name' => 'Firtname Lastname',
+	'username' => 'user9',
+);
+
+// This will return a boolean upon success or when it failed.
+$mail->sendMail($toName, $toMail, $subject, $type, $replaceArray);
+```
+
+E-mail templates needs to be setup before and stored in the folder /app/template/mails.
+Each mail will be called using the $param type.
+File structure needs top be: type + language => type.en.mail.php or passwordreset.en.mail.php
