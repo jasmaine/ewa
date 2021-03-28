@@ -53,9 +53,7 @@ $db = new Database();
 
 In the examples below 'users' is a table in the database. The 'name', 'mail' and 'id' are the rows.
 
-**SELECT**
-
-Selecting data from a database is easy and does not need a lot of code.
+Selecting data from a database is easy and does not need a lot of code:
 
 ```php
 $db->limit(5)->orderby('name', 'DESC')->get('users', array('name','mail'));
@@ -69,8 +67,7 @@ If you want every item from the table, just leave the second param empty.
 $db->get('users');
 ```
 
-
-**INSERT**
+Insert data in the database:
 
 
 ```php
@@ -78,13 +75,13 @@ $db->add('users', array('name'=>'Jan', 'mail'=>'jan@hotmail.com'));
 ```
 
 
-**UPDATE**
+Update data in the database:
 
 ```php
 $db->where('id', 11)->update('user', array('name'=>'Mikey', 'mail'=>'mikey@hotmail.com'));
 ```
 
-**DELETE**
+Delete data from the database.
 
 ```php
 $db->where('id', 11)->remove('users');
