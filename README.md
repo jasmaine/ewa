@@ -75,7 +75,7 @@ $query = $db->get('users');
 
 if($query->results) {
 	
-	echo '<h1>Users</h1>'
+	echo '<h1>Users</h1>';
 	echo '<p>You have fetched '.$query->count.' users.</p>';
 	echo '<table>';
 	
