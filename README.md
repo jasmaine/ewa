@@ -178,7 +178,7 @@ $password = '';
  * Set the minimum length for the password. This field can be left empty.
  * When this field is left out, EWA will use the constant: PASSWORD_LENGTH
  */
-$lengt = 8;
+$length = 8;
 
 /**
  * By default strict is false.
