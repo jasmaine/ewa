@@ -97,7 +97,7 @@ $mail = new Mail();
 // Full name of the recipient. 
 $toName = '';
 
-// E-mail addess of the recipient.
+// E-mail address of the recipient.
 $toMail = '';
 
 // E-mail subject
@@ -115,7 +115,7 @@ $replaceArray = array (
 	'username' => 'user9',
 );
 
-// This will return a boolean upon success or when it failed.
+// This will return a boolean
 $mail->sendMail($toName, $toMail, $subject, $template, $replaceArray);
 ```
 
