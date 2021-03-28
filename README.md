@@ -164,3 +164,50 @@ Webteam
 ```
 
 Save a template per language like this: welcome.en.mail.php and for a Dutch version: welcome.nl.mail.php 
+
+## Password Generation
+
+Password validation check and generation is included in the core code:
+
+```php
+
+// The password given by the user (for example via a $_POST var)
+$password = '';
+
+/** 
+ * Set the minimum length for the password. This field can be left empty.
+ * When this field is left out, EWA will use the constant: PASSWORD_LENGTH
+ */
+$lengt = 8;
+
+/**
+ * By default strict is false.
+ * When strict is true, the password needs to have letter (upper and lower), numbers and special characters.
+ */
+$strict = true;
+
+try {
+	
+	// Check if the password comply
+	Validator::isValidPassword($password, $length, $strict);
+	
+	// Generate a hash from the password
+	$hash = Helper::generatePasswordHash($password);
+	
+	// For example save it in the DB with the username
+	$db = new Database();
+	
+	$query = $db->add('users', array('username'=>'Jan', 'password'=>$hash));
+	
+	if($query->results) {
+		echo 'New user successfully saved!';
+	}
+	
+	
+} catch (Exception $e) {
+
+	echo $e->errorDisplay();
+	
+}
+
+```
