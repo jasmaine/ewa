@@ -107,7 +107,7 @@ $toMail = '';
 $subjet = '';
 
 // This is the mail template name that needs to be loaded
-$type = '';
+$template = '';
 
 /**
  * This array hold values to replace placeholders in the e-mail template.
@@ -119,7 +119,7 @@ $replaceArray = array (
 );
 
 // This will return a boolean upon success or when it failed.
-$mail->sendMail($toName, $toMail, $subject, $type, $replaceArray);
+$mail->sendMail($toName, $toMail, $subject, $template, $replaceArray);
 ```
 
 The e-mail can look like this:
@@ -135,6 +135,4 @@ Kind Regards,
 Webteam
 ```
 
-E-mail templates needs to be setup before and stored in the folder /app/template/mails.
-Each mail will be called using the @param $type.
-File structure needs top be: type + language => type.en.mail.php or passwordreset.en.mail.php
+Save a template per language like this: welcome.en.mail.php and for a Dutch version: welcome.nl.mail.php 
