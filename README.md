@@ -132,7 +132,7 @@ $toName = '';
 $toMail = '';
 
 // E-mail subject
-$subjet = '';
+$subject = '';
 
 // This is the mail template name that needs to be loaded
 $template = '';
