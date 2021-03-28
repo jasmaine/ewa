@@ -4,6 +4,15 @@
  * English Translations
  */
 return [
+    'message' => [
+        'error' => [
+            'no_db_data' => 'No data fetched.',
+            'generic' => 'Something went wrong, please contact the webmaster',
+        ],
+        'success' => [
+            'data_fetched' => 'Data successfully fetched'
+        ]
+    ],
     'error_message_head' => 'Error message',
     'page_not_found' => 'We could not find the requested page.',
     'back_to_home' => 'Back to the homepage',

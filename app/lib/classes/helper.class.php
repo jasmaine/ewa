@@ -46,10 +46,10 @@ class Helper
      * @param string $password
      * @return string
      */
-    public static function generatePassHash($password, 4)
+    public static function generatePassHash($password)
     {
         $options = [
-            'cost' => PASSWORD_STRENGTH,
+            'cost' => PASSWORD_HASH_STRENGTH,
         ];
 
         return password_hash($password, PASSWORD_DEFAULT, $options);

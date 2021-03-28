@@ -145,6 +145,24 @@ class Database
     }
 
     /**
+     * Return the response object
+     *
+     * @param object|boolean $results When there is data it will be an object else it is a boolean
+     * @param int $count If nothing changed it will be null
+     * @param string $message 
+     *
+     * @return object
+     */
+    private function return($results, $count, $message = '')
+    {
+        return (object) [
+            'results'    => $results,
+            'count'      => $count,
+            'message'    => $message
+        ];
+    }
+
+    /**
      * Method database SELECT
      *
      * @param string $table
@@ -171,7 +189,7 @@ class Database
         $sql = "SELECT $select FROM $table".$where.$extra;
 
         if (!$stmt = $this->conn->prepare($sql)) {
-            throw new EwaException($this->conn->error);
+            return $this->return(false, null, $this->conn->error);
         }
 
         if ($params) {
@@ -179,24 +197,24 @@ class Database
         }
 
         if (!$stmt->execute()) {
-            throw new EwaException($stmt->error);
+            return $this->return(false, null, $stmt->error);
         }
 
         $result = $stmt->get_result();
 
         if ($result->num_rows == 0) {
-            $data = false;
+            return $this->return(false, 0, Lang::get('message.error.no_db_data'));
         } elseif ($result->num_rows == 1) {
-            $data = $result->fetch_object();
+            return $this->return($result->fetch_object(), 1);
         } else {
             $data = array();
 
             while ($row = $result->fetch_object()) {
                 $data[] = $row;
             }
-        }
 
-        return $data;
+            return $this->return($data, $result->num_rows);
+        }
     }
 
     /**
@@ -220,27 +238,27 @@ class Database
                 $type .= substr(gettype($v), 0, 1);
 
                 if (Validator::isValidNum($k)) {
-                    throw new EwaException('The insert rows and values do not match.');
+                    return $this->return(false, null, 'The insert rows and values do not match.');
                 }
             }
 
             $sql = "INSERT INTO ".$table." (".implode(',', $inserFields).") VALUES (".implode(',', $insertPlaceholder).")";
 
             if (!$stmt = $this->conn->prepare($sql)) {
-                throw new EwaException($this->conn->error);
+                return $this->return(false, null, $this->conn->error);
             }
 
             $stmt->bind_param($type, ...$value);
 
             if (!$stmt->execute()) {
-                throw new EwaException($stmt->error);
+                return $this->return(false, null, $stmt->error);
             }
 
             if ($stmt->affected_rows == 1) {
-                return true;
+                return $this->return(true, 1);
             }
         } else {
-            throw new EwaException('No correct insert data given.');
+            return $this->return(false, null, 'No correct insert data given.');
         }
     }
 
@@ -278,22 +296,22 @@ class Database
             $sql = "UPDATE $table SET ".$set.$where;
 
             if (!$stmt = $this->conn->prepare($sql)) {
-                throw new EwaException($this->conn->error);
+                return $this->return(false, null, $this->conn->error);
             }
 
             $stmt->bind_param($type, ...$value, ...$params);
 
             if (!$stmt->execute()) {
-                throw new EwaException($stmt->error);
+                return $this->return(false, null, $stmt->error);
             }
 
             if ($stmt->affected_rows < 1) {
-                throw new EwaException('No records have been changed.');
+                return $this->return(false, null, 'No records have been changed.');
             } else {
-                return true;
+                return $this->return(true, 1);
             }
         } else {
-            throw new EwaException('No correct insert data given.');
+            return $this->return(false, null, 'No correct insert data given.');
         }
     }
 
@@ -317,22 +335,22 @@ class Database
             $sql = "DELETE FROM $table".$where;
 
             if (!$stmt = $this->conn->prepare($sql)) {
-                throw new EwaException($this->conn->error);
+                return $this->return(false, null, $this->conn->error);
             }
 
             $stmt->bind_param($type, ...$params);
 
             if (!$stmt->execute()) {
-                throw new EwaException($stmt->error);
+                return $this->return(false, null, $stmt->error);
             }
 
             if ($stmt->affected_rows < 1) {
-                throw new EwaException('No records have been changed.');
+                return $this->return(false, null, 'No records have been changed.');
             } else {
-                return true;
+                return $this->return(true, 1);
             }
         } else {
-            throw new EwaException('No correct insert data given.');
+            return $this->return(false, null, 'No correct insert data given.');
         }
     }
 }
