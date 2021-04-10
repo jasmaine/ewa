@@ -1,8 +1,3 @@
-<?php 
-/**
- * Master template Header file
- */
-?>
 <!DOCTYPE html>
 <html>
 
