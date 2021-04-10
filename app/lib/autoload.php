@@ -8,7 +8,7 @@
  * @return void
  */
 spl_autoload_register(function ($className) {
-    $includeClass = 'app/lib/classes/' . str_replace("\\", DIRECTORY_SEPARATOR, strtolower($className));
+    $includeClass = 'app/lib/classes/' . str_replace("\\", DIRECTORY_SEPARATOR, $className);
      
-    include_once(BASEPATH. '/' . $includeClass . '.class.php');
+    include_once(BASEPATH. '/' . $includeClass . '.php');
 });

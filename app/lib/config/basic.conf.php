@@ -13,9 +13,9 @@ define("TEMPLATE_PLAIN", "404,post,get");
  * Database settings
  */
 define("DBHOST", "localhost");
-define("DBNAME", "");
-define("DBUSER", "");
-define("DBPASS", "");
+define("DBNAME", "games");
+define("DBUSER", "root");
+define("DBPASS", "enter");
 
 /*
  * Website settings

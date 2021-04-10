@@ -6,5 +6,5 @@
  * $app->loadView('home', $data);
  *
  */
- 
+
 $app->loadView('home');

@@ -33,6 +33,11 @@ define("BASEPATH", explode('httpdocs', $_SERVER['DOCUMENT_ROOT'])[0]);
 include_once(BASEPATH.'app/lib/autoload.php');
 
 /**
+ * Include the Composer autoloader
+ */
+include_once(BASEPATH.'app/vendor/autoload.php');
+
+/**
  * Initiate the website app
  * autoload the config
  */
