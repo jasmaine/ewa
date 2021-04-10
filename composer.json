@@ -5,7 +5,7 @@
     "require": {
         "phpmailer/phpmailer": "dev-master",
         "composer/installers": "~1.0",
-        "jasmaine/ewa": "~2.0.1",
+        "jasmaine/ewa": "^2.0.1",
     },
     "license": "Mit",
     "authors": [
