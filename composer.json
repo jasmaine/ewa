@@ -1,7 +1,7 @@
 {
     "name": "jasmaine/ewa",
     "description": "Ewa WebApp",
-    "type": "project",
+    "type": "library",
     "require": {
         "phpmailer/phpmailer": "dev-master",
         "composer/installers": "~1.0"
