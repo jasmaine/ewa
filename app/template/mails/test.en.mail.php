@@ -1,14 +1,16 @@
-<?php 
+<?php
+
 /**
- * E-mail Template preview file (English)
+ * E-mail preview template
  */
+
 ?>
 Hello {name}
-<br/><br/>
+<br /><br />
 This is a e-mail message for you.
-<br/><br/>
-Just a timestamp for  fun: {timestamp}
-<br/><br/>
+<br /><br />
+Just a timestamp for fun: {timestamp}
+<br /><br />
 Regards
-<br><br/>
+<br><br />
 {from}

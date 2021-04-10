@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * Preview Template file for the homepage
+ */
+
+?>
 <div class="container container-center">
     <div class="grid">
         <div class="width-1-2">
