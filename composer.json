@@ -4,7 +4,8 @@
     "type": "library",
     "require": {
         "phpmailer/phpmailer": "dev-master",
-        "composer/installers": "~1.0"
+        "composer/installers": "~1.0",
+        "phpmailer/phpmailer": "~2.0.1",
     },
     "license": "Mit",
     "authors": [
