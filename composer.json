@@ -15,7 +15,7 @@
     ],
     "extra": {
         "installer-paths": {
-        "": ["jasmaine/ewa": "^v2.0"]
+        "": ["jasmaine/ewa"]
         }
     }
 }
