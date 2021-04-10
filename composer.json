@@ -1,5 +1,5 @@
 {
-    "name": "jasmaine/ewa",
+    "name": "pasarella/ewa",
     "description": "Ewa WebApp",
     "type": "library",
     "require": {
@@ -13,6 +13,7 @@
             "email": "mike@pasarella.eu"
         }
     ],
+    "minimum-stability": "dev-master",
     "extra": {
         "installer-paths": {
         "": ["jasmaine/ewa"]
