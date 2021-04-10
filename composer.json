@@ -13,7 +13,8 @@
             "email": "mike@pasarella.eu"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "installer-paths": {
         "": ["jasmaine/ewa"]
