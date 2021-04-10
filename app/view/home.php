@@ -1,3 +1,8 @@
+<?php 
+/**
+ * Template Home File
+ */
+?>
 <div class="container container-center">
     <div class="grid">
         <div class="width-1-2">

@@ -1,3 +1,8 @@
+<?php 
+/**
+ * E-mail Template preview file (Dutch)
+ */
+?>
 Hoi %%NAME%%
 <br/><br/>
 Dit is een bericht voor je.

@@ -1,3 +1,8 @@
+<?php 
+/**
+ * E-mail Template preview file (English)
+ */
+?>
 Hello {name}
 <br/><br/>
 This is a e-mail message for you.
