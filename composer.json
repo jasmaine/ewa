@@ -13,7 +13,7 @@
             "email": "mike@pasarella.eu"
         }
     ],
-    "minimum-stability": "main",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
         "installer-paths": {
