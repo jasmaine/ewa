@@ -35,7 +35,7 @@ include_once(BASEPATH.'app/lib/autoload.php');
 /**
  * Include the Composer autoloader
  */
-include_once(BASEPATH.'app/vendor/autoload.php');
+include_once(BASEPATH.'/vendor/autoload.php');
 
 /**
  * Initiate the website app

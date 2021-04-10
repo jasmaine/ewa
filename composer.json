@@ -1,0 +1,22 @@
+{
+    "name": "pasarella/ewa",
+    "description": "Ewa WebApp",
+    "type": "project",
+    "require": {
+        "phpmailer/phpmailer": "dev-master",
+        "composer/installers": "~1.0"
+    },
+    "license": "Mit",
+    "authors": [
+        {
+            "name": "Mike Pasarella",
+            "email": "mike@pasarella.eu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "installer-paths": {
+        "": ["jasmaine/ewa"]
+        }
+    }
+}
