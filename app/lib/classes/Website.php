@@ -36,7 +36,7 @@ class Website
 
         if (isset($_GET['find'])) {
             if (preg_match("/^[a-z0-9-\/]+$/i", $_GET['find'])) {
-                $this->page = $_GET['find'];
+                $this->page = rtrim($_GET['find'], '/');
             }
         }
     }
