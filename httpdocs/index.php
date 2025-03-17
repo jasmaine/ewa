@@ -1,12 +1,10 @@
 <?php
-/*
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
+
 */
 /*************************************
  *                                   *
- * Mesic / Pasarella WebApp v.2.0.0b *
+ * Mesic / Pasarella EWA WebApp      *
  * Date: 22 March 2021               *
  *                                   *
  * (c) STUDIO PASARELLA 2021         *
