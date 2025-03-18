@@ -218,13 +218,10 @@ Simple tools to quickly return date
 
 ```php
 
-/*
- * Get tomorrow
- */
-
+// Get the date of tomorrow, standard format is Y-m-d. 
 echo 'Tomorrow it is: '.Dates::tomorrow();
 
-// You can also format it and print the day name of yesterday:
+// You can also format it how you want the date to be printed. For example you only want to know which day it was yesterday.
 
 echo 'Yesterday it was '.Dates::yesterday('l');
 
