@@ -211,3 +211,21 @@ try {
 }
 
 ```
+
+## Dates
+
+Simple tools to quickly return date
+
+```php
+
+/*
+ * Get tomorrow
+ */
+
+echo 'Tomorrow it is: '.Dates::tomorrow();
+
+// You can also format it and print the day name of yesterday:
+
+echo 'Yesterday it was '.Dates::yesterday('l');
+
+```
