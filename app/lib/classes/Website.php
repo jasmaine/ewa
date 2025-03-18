@@ -21,6 +21,10 @@ class Website
         if (file_exists(BASEPATH.'app/lib/config/'.$config.'.conf.php')) {
             include_once(BASEPATH.'app/lib/config/'.$config.'.conf.php');
         }
+		  
+		  if (file_exists(BASEPATH.'app/lib/config/routing.conf.php')) {
+				include_once(BASEPATH.'app/lib/config/routing.conf.php');
+		  }
 
         /*
          * Set the basic startpage to load
@@ -39,6 +43,16 @@ class Website
                 $this->page = rtrim($_GET['find'], '/');
             }
         }
+		  
+		  /**
+			 *  Rerouting
+			 */
+			 
+			 if(array_key_exists($this->page, $route)){
+				 
+				 exit(header("location:".URI."/".$route[$this->page], true, 302));
+				 
+			 }
     }
 
     /**
